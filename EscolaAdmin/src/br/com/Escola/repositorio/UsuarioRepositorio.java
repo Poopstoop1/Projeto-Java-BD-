@@ -41,7 +41,7 @@ public boolean inserirUsuarioProfessor(Usuario uP) {
 		try {
 			Connection con = DBConexao.obterConexao();
 			
-			String comando = "INSERT INTO usuarioProf (nome, login, senha, cpf, email, telefone)\r\n"
+			String comando2 = "INSERT INTO usuarioProf (nome, login, senha, cpf, email, telefone)\r\n"
 					+ "VALUES(\'" 
 					+ uP.getNome() + "\',\'" 
 					+ uP.getIdade() + "\',\'"
@@ -52,10 +52,10 @@ public boolean inserirUsuarioProfessor(Usuario uP) {
 					+ uP.getEmail() + "\',\'"
 					+ uP.getTelefone()+ "\')";
 			
-			System.out.println( comando );
+			System.out.println( comando2 );
 			
 			Statement st = con.createStatement();
-			st.execute(comando);
+			st.execute(comando2);
 			
 			return true;
 		} catch (Exception e) {

@@ -14,31 +14,31 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {
 
-		JOptionPane.showMessageDialog(null,"Projeto Administração da Escola");
+		JOptionPane.showMessageDialog(null,"Projeto Sistema da Escola");
 		
 		List<Aluno> listaAluno = new ArrayList<Aluno>();
 		boolean isCadastrar = true;
 		while( isCadastrar ) {
 			Aluno a = AlunoScreen.cadastrarAluno();
 			listaAluno.add(a);
-			
 			isCadastrar = JOptionPane.showConfirmDialog(null, "Deseja Cadastrar outro Aluno") == 0;
-			
-		}
+			}
+		
+		JOptionPane.showMessageDialog(null, "Cadastro de Aluno com sucesso!\n " + listaAluno.size() );
+		
 		
 		List<Professor> listaProfessor = new ArrayList<Professor>();
-		while( isCadastrar ) {
+		boolean Cadastrarp = true;
+		while( Cadastrarp ) {
 			Professor p = ProfessorScreen.cadastrarProfessor();
 			listaProfessor.add(p);
 			
 			isCadastrar = JOptionPane.showConfirmDialog(null, "Deseja Cadastrar outro Professor") == 0;
 			
 		}
+		JOptionPane.showMessageDialog(null, "Cadastro de Professor com sucesso!\n " + listaProfessor.size() );
 		
 		
-		
-		// Cadastrar Sócio
-		JOptionPane.showMessageDialog(null, "Cadastro de sócio\n " + listaAluno.size() );
 	}
 
 }

@@ -43,6 +43,7 @@ public class AlunoScreen {
 		
 		aluno.getDisciplinas().add(disciplina);
 		}
+		aluno.toString();
 
 		
 		return aluno;
