@@ -1,5 +1,6 @@
 package br.com.Escola.domain;
 
+
 public class Usuario {
 	
 	String nome;
@@ -9,6 +10,10 @@ public class Usuario {
 	String login;
 	
 	String senha;
+
+	String nomePai;
+	
+	String nomeMae;
 	
 	String DatadeNascimento;
 	
@@ -17,6 +22,8 @@ public class Usuario {
 	String email;
 	
 	String telefone;
+	
+	
 
 	public String getNome() {
 		return nome;
@@ -37,19 +44,14 @@ public class Usuario {
 		return DatadeNascimento;
 	}
 
-	public void setDatadeNascimento(String datadeNascimento) throws Exception{
-		if (validarData(datadeNascimento)) {
-            this.DatadeNascimento = datadeNascimento;
-        } else {
-            this.DatadeNascimento = "data inválida";
-        }
+	public void setDataDeNascimento(String dataDeNascimento) throws Exception  {
+		if( dataDeNascimento.length() != 10 ) {
+			throw new Exception("Data Valida");
+		}	else {
+			this.DatadeNascimento = dataDeNascimento;
+		}
 	}
 	
-	private boolean validarData(String data) {
-        String pattern = "\\d{2}/\\d{2}/\\d{4}";
-        return data.matches(pattern);
-    }
-
 	public String getSenha() {
 		return senha;
 	}
@@ -93,13 +95,28 @@ public class Usuario {
 		Idade = idade;
 	}
 
+	public String getNomePai() {
+		return nomePai;
+	}
+
+	public void setNomePai(String nomePai) {
+		this.nomePai = nomePai;
+	}
+
+	public String getNomeMae() {
+		return nomeMae;
+	}
+
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
+	}
+
 	@Override
 	public String toString() {
-		return "Usuario [nome=" + nome + ", Idade=" + Idade + ", login=" + login + ", senha=" + senha
-				+ ", DatadeNascimento=" + DatadeNascimento + ", cpf=" + cpf + ", email=" + email + ", telefone="
-				+ telefone + "]";
+		return "Usuario [nome=" + nome + ", Idade=" + Idade + ", login=" + login + ", senha=" + senha + ", nomePai="
+				+ nomePai + ", nomeMae=" + nomeMae + ", DatadeNascimento=" + DatadeNascimento + ", cpf=" + cpf
+				+ ", email=" + email + ", telefone=" + telefone;
 	}
-	
 	
 
 }

@@ -23,7 +23,6 @@ public class TesteConexaoDB {
 					"jdbc:mysql://localhost:3306/clubeadm?user=root");
 			JOptionPane.showMessageDialog(null, "Conexão feita com sucesso");
 			
-			
 			JOptionPane.showMessageDialog(null, "Inserindo um dado no BD");
 			
 			String login = JOptionPane.showInputDialog("Digite um login");

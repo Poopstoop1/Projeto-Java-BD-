@@ -4,13 +4,14 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 import br.com.Escola.domain.Aluno;
-import br.com.Escola.domain.Disciplina;
 import br.com.Escola.domain.Usuario;
+import br.com.Escola.domain.Disciplina;
 import br.com.Escola.repositorio.UsuarioRepositorio;
 
 public class AlunoScreen {
 	
 	static UsuarioRepositorio rep = new UsuarioRepositorio();
+	static int nextmatricula = 1;
 	
 	public static Aluno cadastrarAluno() throws Exception {
 		
@@ -22,30 +23,40 @@ public class AlunoScreen {
 		user.setCpf(JOptionPane.showInputDialog("Digite o CPF do Aluno"));
 		user.setEmail(JOptionPane.showInputDialog("Digite o Email do Aluno"));
 		user.setLogin(JOptionPane.showInputDialog("Digite o Login do Aluno"));
-		user.setDatadeNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do Aluno"));
-		user.setTelefone(JOptionPane.showInputDialog("Digite o Telefon do Aluno"));
+		user.setDataDeNascimento(JOptionPane.showInputDialog("Digite a data de nascimento do Aluno"));
+		user.setNomeMae(JOptionPane.showInputDialog("Digite o Nome da Mãe do Aluno"));
+		user.setNomePai(JOptionPane.showInputDialog("Digite o Nome do Pai do Aluno"));
+		user.setTelefone(JOptionPane.showInputDialog("Digite o Telefone do Aluno"));
 		user.setSenha(JOptionPane.showInputDialog("Digite a senha do Aluno"));
 		
-		rep.inserirUsuarioAluno(user);
+		
 		
 		Aluno aluno = new Aluno();
 		aluno.setU(user);
 		aluno.setDataCadastro( new Date() );
-		aluno.setMatricula("00001");
+		//cada vez que criar um novo aluno a matricula incrementa +1 
+		aluno.setMatricula(String.format("%05d", nextmatricula++));
 		
-		for (int pos = 1; pos <= 4; pos++) {
-			String nomeDisciplina= JOptionPane.showInputDialog("Digite o nome da disciplina" + pos);
-			String valorNota= JOptionPane.showInputDialog("Digite a nota" + pos);
 		
-		Disciplina disciplina = new Disciplina();
-		disciplina.setDisciplina(nomeDisciplina);
-		disciplina.setNota(Integer.parseInt(valorNota));	
 		
-		aluno.getDisciplinas().add(disciplina);
-		}
-		aluno.toString();
-
+		Disciplina disciplina1 = new Disciplina();
+		disciplina1.setDisciplina("Matematica");
 		
+		aluno.getDisciplinas().add(disciplina1);
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Português");
+		
+		aluno.getDisciplinas().add(disciplina2);
+		
+		Disciplina disciplina3 = new Disciplina();
+		disciplina3.setDisciplina("Geografia");
+		aluno.getDisciplinas().add(disciplina3);
+		
+		Disciplina disciplina4 = new Disciplina();
+		disciplina4.setDisciplina("Física");
+		
+		aluno.getDisciplinas().add(disciplina4);
+		rep.inserirUsuarioAluno(user,aluno,disciplina1,disciplina2,disciplina3,disciplina4);
 		return aluno;
 	}
 

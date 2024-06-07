@@ -3,7 +3,6 @@ package br.com.Escola.domain;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 import br.com.Escola.domain.Disciplina;
 
 public class Aluno {
@@ -13,6 +12,15 @@ public class Aluno {
 	String matricula;
 	
 	Date dataCadastro;
+	
+	int Faltas;
+	
+	
+	
+	
+	public String Aprovado = "Aprovado!";
+	 public String Recuperacao = "Recuperação!";
+	 public String reprovado = "Reprovado!";
 	
 	List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 	
@@ -53,14 +61,57 @@ public class Aluno {
 		for (Disciplina disciplina : disciplinas) {
 			somaNota += disciplina.getNota(); 
 		}
-		return somaNota / disciplinas.size();
+		if(somaNota == 0) {
+			return somaNota = 0;
+		}else {
+			return somaNota / disciplinas.size();
+		}
+		
+	}
+
+	public String alunoAprovado(){
+		
+		if(this.getMedia() >= 5) {
+			if(this.getMedia() >= 7) {
+				return this.Aprovado;
+			}else {
+				return this.Recuperacao;
+			}
+			
+		}else {
+			return this.reprovado;
+		}
+		
+		
+	}
+	 public int getFaltas() {
+			return Faltas;
+		}
+
+		public void setFaltas(int faltas) {
+			Faltas = faltas;
+		}
+
+	
+	public void addNota(String nomeDisciplina, int nota) {
+	    for (Disciplina disciplina : disciplinas) {
+	        if (disciplina.getDisciplina().equals(nomeDisciplina)) {
+	            disciplina.setNota(nota);
+	            return;
+	        }
+	    }
+	    throw new IllegalArgumentException("Disciplina" + nomeDisciplina + "não encontrada " );
 	}
 
 	@Override
 	public String toString() {
-		return "Aluno [u=" + u + ", matricula=" + matricula + ", dataCadastro=" + dataCadastro + ", disciplinas="
-				+ disciplinas + "]";
+		return "Aluno [u=" + u + ", matricula=" + matricula + ", dataCadastro=" + dataCadastro + ", Faltas=" + Faltas
+				+ ", disciplinas=" + disciplinas + "]";
 	}
+	
+	
+
+
 
 
 

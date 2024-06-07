@@ -2,18 +2,25 @@ package br.com.Escola.repositorio;
 
 import java.sql.Connection;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
+import br.com.Escola.domain.Aluno;
+import br.com.Escola.domain.Disciplina;
+import br.com.Escola.domain.Professor;
 import br.com.Escola.domain.Usuario;
 
 public class UsuarioRepositorio {
-	
-	public boolean inserirUsuarioAluno(Usuario uA) {
+	List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+	public boolean inserirUsuarioAluno(Usuario uA,Aluno A, Disciplina d1, Disciplina d2, Disciplina d3, Disciplina d4) {
 		
 		try {
 			Connection con = DBConexao.obterConexao();
 			
-			String comando = "INSERT INTO usuarioAlun (nome, login, senha, cpf, email, telefone)\r\n"
-					+ "VALUES(\'" 
+			String comando = "INSERT INTO usuarioAlun (NumMatricula,nome, idade, login, senha, cpf, DatadeNascimento"
+					+ ", email, telefone, nota1, nota2, nota3, nota4, Media, Status )\r\n"
+					+ "VALUES(\'"
+					+ A.getMatricula() + "\',\'" 
 					+ uA.getNome() + "\',\'" 
 					+ uA.getIdade() + "\',\'"
 					+ uA.getLogin() + "\',\'"
@@ -21,7 +28,13 @@ public class UsuarioRepositorio {
 					+ uA.getCpf() + "\',\'"
 					+ uA.getDatadeNascimento() + "\',\'"
 					+ uA.getEmail() + "\',\'"
-					+ uA.getTelefone()+ "\')";
+					+ uA.getTelefone() + "\')"
+					+ d1.getNota() + "\')"
+					+ d2.getNota() +  "\')"
+					+ d3.getNota() + "\')"
+					+ d4.getNota() + "\')"
+					+ A.getMedia() + "\')"
+					+ A.alunoAprovado() + "\')";
 			
 			System.out.println( comando );
 			
@@ -36,12 +49,12 @@ public class UsuarioRepositorio {
 		return false;
 	}
 	
-public boolean inserirUsuarioProfessor(Usuario uP) {
+public boolean inserirUsuarioProfessor(Usuario uP, Professor P) {
 		
 		try {
 			Connection con = DBConexao.obterConexao();
 			
-			String comando2 = "INSERT INTO usuarioProf (nome, login, senha, cpf, email, telefone)\r\n"
+			String comando2 = "INSERT INTO usuarioProf (nome, idade,  login, senha, cpf, DatadeNascimento, email, telefone, Disciplina)\r\n"
 					+ "VALUES(\'" 
 					+ uP.getNome() + "\',\'" 
 					+ uP.getIdade() + "\',\'"
@@ -50,7 +63,8 @@ public boolean inserirUsuarioProfessor(Usuario uP) {
 					+ uP.getCpf() + "\',\'"
 					+ uP.getDatadeNascimento() + "\',\'"
 					+ uP.getEmail() + "\',\'"
-					+ uP.getTelefone()+ "\')";
+					+ uP.getTelefone()+ "\')"
+					+ P.getNomeDisciplina()+ "\')";
 			
 			System.out.println( comando2 );
 			
