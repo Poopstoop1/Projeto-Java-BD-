@@ -115,7 +115,7 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [nome=" + nome + ", Idade=" + Idade + ", login=" + login + ", senha=" + senha + ", nomePai="
 				+ nomePai + ", nomeMae=" + nomeMae + ", DatadeNascimento=" + DatadeNascimento + ", cpf=" + cpf
-				+ ", email=" + email + ", telefone=" + telefone + "]";
+				+ ", email=" + email + ", telefone=" + telefone;
 	}
 	
 

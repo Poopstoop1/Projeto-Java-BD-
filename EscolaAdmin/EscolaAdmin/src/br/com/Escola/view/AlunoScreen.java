@@ -42,14 +42,20 @@ public class AlunoScreen {
 		Disciplina disciplina1 = new Disciplina();
 		disciplina1.setDisciplina("Matematica");
 		
+		aluno.getDisciplinas().add(disciplina1);
 		Disciplina disciplina2 = new Disciplina();
 		disciplina2.setDisciplina("Português");
 		
+		aluno.getDisciplinas().add(disciplina2);
+		
 		Disciplina disciplina3 = new Disciplina();
 		disciplina3.setDisciplina("Geografia");
+		aluno.getDisciplinas().add(disciplina3);
 		
 		Disciplina disciplina4 = new Disciplina();
 		disciplina4.setDisciplina("Física");
+		
+		aluno.getDisciplinas().add(disciplina4);
 		rep.inserirUsuarioAluno(user,aluno,disciplina1,disciplina2,disciplina3,disciplina4);
 		return aluno;
 	}

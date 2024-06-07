@@ -61,7 +61,12 @@ public class Aluno {
 		for (Disciplina disciplina : disciplinas) {
 			somaNota += disciplina.getNota(); 
 		}
-		return somaNota / disciplinas.size();
+		if(somaNota == 0) {
+			return somaNota = 0;
+		}else {
+			return somaNota / disciplinas.size();
+		}
+		
 	}
 
 	public String alunoAprovado(){
