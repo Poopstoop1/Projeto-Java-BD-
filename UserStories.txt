@@ -6,5 +6,6 @@ Eu como administrador, preciso que cada Aluno tenha sua nota
 Eu como Aluno, tenho direito de ver minhas notas.
 Eu como Aluno, tenho direito de ver minha media.
 Eu como Professor, posso inserir as notas do meu Aluno e as faltas.
+Eu como Professor, posso inserir as faltas do meu Aluno e as faltas.
 
 

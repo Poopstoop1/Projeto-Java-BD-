@@ -58,6 +58,26 @@ static UsuarioRepositorio rep = new UsuarioRepositorio();
 	        professor.inserirNota(aluno, professor.getNomeDisciplina(), nota);
 	        JOptionPane.showMessageDialog(null, "Nota inserida com sucesso!");
 	    }
+	 
+	 public static void inserirFaltasParaAluno(List<Aluno> listaAluno, Professor professor) {
+	        String nomeAluno = JOptionPane.showInputDialog("Digite o nome do Aluno para inserir as faltas");
+	        Aluno aluno = null;
+	        for (Aluno a : listaAluno) {
+	            if (a.getU().getNome().equalsIgnoreCase(nomeAluno)) {
+	                aluno = a;
+	                break;
+	            }
+	        }
+
+	        if (aluno == null) {
+	            JOptionPane.showMessageDialog(null, "Aluno não encontrado!");
+	            return;
+	        }
+
+	        int faltas = Integer.parseInt(JOptionPane.showInputDialog("Digite o número de faltas para " + nomeAluno));
+	        professor.inserirFaltas(aluno, professor.getNomeDisciplina(), faltas);
+	        JOptionPane.showMessageDialog(null, "Faltas inseridas com sucesso!");
+	    }
 	}
 	
 

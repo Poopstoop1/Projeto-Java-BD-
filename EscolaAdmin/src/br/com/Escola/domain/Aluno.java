@@ -13,12 +13,13 @@ public class Aluno {
 	
 	Date dataCadastro;
 	
-	int Faltas;
+	String turma;
 	
+	String Serie;
 	
-	
-	
-	public String Aprovado = "Aprovado!";
+	String turno;
+		
+	 public String Aprovado = "Aprovado!";
 	 public String Recuperacao = "Recuperação!";
 	 public String reprovado = "Reprovado!";
 	
@@ -81,17 +82,7 @@ public class Aluno {
 		}else {
 			return this.reprovado;
 		}
-		
-		
 	}
-	 public int getFaltas() {
-			return Faltas;
-		}
-
-		public void setFaltas(int faltas) {
-			Faltas = faltas;
-		}
-
 	
 	public void addNota(String nomeDisciplina, int nota) {
 	    for (Disciplina disciplina : disciplinas) {
@@ -103,23 +94,35 @@ public class Aluno {
 	    throw new IllegalArgumentException("Disciplina" + nomeDisciplina + "não encontrada " );
 	}
 
+
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
+	}
+
+	public String getSerie() {
+		return Serie;
+	}
+
+	public void setSerie(String serie) {
+		Serie = serie;
+	}
+
+	public String getTurno() {
+		return turno;
+	}
+
+	public void setTurno(String turno) {
+		this.turno = turno;
+	}
+
 	@Override
 	public String toString() {
-		return "Aluno [u=" + u + ", matricula=" + matricula + ", dataCadastro=" + dataCadastro + ", Faltas=" + Faltas
-				+ ", disciplinas=" + disciplinas + "]";
+		return "Aluno [u=" + u + ", matricula=" + matricula + ", dataCadastro=" + dataCadastro +
+				", turma=" + turma + ", Serie=" + Serie + ", turno=" + turno + ", disciplinas=" + disciplinas + "]";
 	}
 	
-	
-
-
-
-
-
-
-	
-	
-	
-	
-	
-
 }

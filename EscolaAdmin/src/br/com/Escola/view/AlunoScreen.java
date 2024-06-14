@@ -34,6 +34,10 @@ public class AlunoScreen {
 		Aluno aluno = new Aluno();
 		aluno.setU(user);
 		aluno.setDataCadastro( new Date() );
+		aluno.setTurma(JOptionPane.showInputDialog("Digite a turma do Aluno"));
+		aluno.setTurno(JOptionPane.showInputDialog("Digite o turno do Aluno"));
+		aluno.setSerie(JOptionPane.showInputDialog("Digite a serie do Aluno"));
+		
 		//cada vez que criar um novo aluno a matricula incrementa +1 
 		aluno.setMatricula(String.format("%05d", nextmatricula++));
 		

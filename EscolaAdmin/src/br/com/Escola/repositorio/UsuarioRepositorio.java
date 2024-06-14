@@ -18,7 +18,7 @@ public class UsuarioRepositorio {
 			Connection con = DBConexao.obterConexao();
 			
 			String comando = "INSERT INTO usuarioAlun (NumMatricula,nome, idade, login, senha, cpf, DatadeNascimento"
-					+ ", email, telefone, nota1, nota2, nota3, nota4, Media, Status )\r\n"
+					+ ", email, telefone, turma, turno, serie, nota1, nota2, nota3, nota4, Media, Status )\r\n"
 					+ "VALUES(\'"
 					+ A.getMatricula() + "\',\'" 
 					+ uA.getNome() + "\',\'" 
@@ -29,6 +29,9 @@ public class UsuarioRepositorio {
 					+ uA.getDatadeNascimento() + "\',\'"
 					+ uA.getEmail() + "\',\'"
 					+ uA.getTelefone() + "\')"
+					+ A.getTurma() + "\')"
+					+ A.getTurno() + "\')"
+					+ A.getSerie() + "\')"
 					+ d1.getNota() + "\')"
 					+ d2.getNota() +  "\')"
 					+ d3.getNota() + "\')"

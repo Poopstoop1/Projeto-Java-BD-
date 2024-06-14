@@ -20,4 +20,13 @@ public class Professor extends Aluno {
             }
         }
   }
+	
+	public void inserirFaltas(Aluno aluno, String nomeDisciplina, int faltas) {
+        for (Disciplina disciplina : aluno.getDisciplinas()) {
+            if (disciplina.getDisciplina().equals(nomeDisciplina)) {
+                disciplina.setFaltas(faltas);
+                return;
+            }
+        }
+    }
 }

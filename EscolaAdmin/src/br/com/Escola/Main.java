@@ -69,8 +69,29 @@ public class Main {
             inserirNotas = JOptionPane.showConfirmDialog(null, "Deseja que outro Professor insira notas?") == 0;
         }
         
+        boolean inserirFaltas = true;
+        while (inserirFaltas) {
+            String nomeProfessor = JOptionPane.showInputDialog("Digite o nome do Professor que deseja inserir faltas");
+            Professor professor = null;
+            for (Professor p : listaProfessor) {
+                if (p.getU().getNome().equalsIgnoreCase(nomeProfessor)) {
+                    professor = p;
+                    break;
+                }
+            }
+
+            if (professor == null) {
+                JOptionPane.showMessageDialog(null, "Professor não encontrado!");
+            } else {
+                ProfessorScreen.inserirFaltasParaAluno(listaAluno, professor);
+            }
+
+            inserirFaltas = JOptionPane.showConfirmDialog(null, "Deseja que outro Professor insira faltas?") == 0;
+        }
+        
         for (Aluno aluno : listaAluno) {
-			System.out.println( aluno.getU()  + " "+ aluno.getMatricula() + " "+ aluno.getDisciplinas() + " " +  aluno.getMedia() ); 
+			System.out.println( aluno.getU()  + "Matricula: "+ aluno.getMatricula() + 
+					 " "+ aluno.getDisciplinas() + " " +  aluno.getMedia() ); 
 		}
 	}
 	
