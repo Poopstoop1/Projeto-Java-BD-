@@ -1,11 +1,11 @@
-Eu como administrador, preciso cadastrar um Aluno com seus dados;
-Eu como administrador, preciso cadastrar um Professor com seus dados;
-Eu como administrador, preciso cadastrar cada Professor com sua disciplina;
-Eu como administrador, preciso que cada Aluno tenha uma matricula (Sequencial);
-Eu como administrador, preciso que cada Aluno tenha sua nota 
-Eu como Aluno, tenho direito de ver minhas notas.
-Eu como Aluno, tenho direito de ver minha media.
-Eu como Professor, posso inserir as notas do meu Aluno e as faltas.
-Eu como Professor, posso inserir as faltas do meu Aluno e as faltas.
-
+Projeto de uma Escola
+- Onde o Administrador precisa cadastrar um Aluno e Professor,
+- Onde o Administrador precisa cadastrar o Aluno com sua matricula (Sequencial),
+- Onde o Administrador precisa cadastrar o Professor e a disciplina que ele Leciona,
+- Nessa Escola só terá 4 disciplinas terá Matemática, Português, Geografia e física,
+- Nessa Escola preciso que cada Aluno tenha sua nota e suas faltas referente as disciplinas,
+- Nessa Escola preciso que cada Aluno tenha sua Média,
+- Nessa Escola preciso que cada Aluno tenha o Status se foi Aprovado, se está em Recuperação ou se foi Reprovado referente as notas,
+- O Professor precisa colocar a nota e a falta do seu Aluno pelo nome do Aluno,
+- O Professor com nome Tal só colocará a nota e a Falta referente a disciplina que ele Leciona.
 
